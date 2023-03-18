@@ -24,10 +24,12 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <script src="assets/vendor/jQuery/jquery-3.6.3.min.js"></script>
-  <script src="assets/js/email.js"></script>
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- EmailJS (for Contact form) -->
+  <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
 
   <!-- =======================================================
   * Template Name: MyResume - v4.10.0
@@ -50,6 +52,10 @@
       border-radius: 50%;
       box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
     } */
+
+    .d-none {
+      display: none;
+    }
 
   </style>
 </head>
@@ -626,7 +632,7 @@
             <div class="count-box">
               <!-- <i class="bi bi-photoshop"></i> -->
 
-              <img src="/assets/img/logos/Adobe_Photoshop_CC_icon.svg.png" alt="" width="50px">
+              <img src="assets/img/logos/Adobe_Photoshop_CC_icon.svg.png" alt="" width="50px">
               <h4 class="mt-3">Photoshop</h4>
               <span data-purecounter-start="0" data-purecounter-end="2016" data-purecounter-duration="1" class="purecounter" style="font-size: 30px;"></span>
             </div>
@@ -636,7 +642,7 @@
 
             <div class="count-box">
 
-              <img src="/assets/img/logos/illustrator.png" alt="" width="50px">
+              <img src="assets/img/logos/illustrator.png" alt="" width="50px">
               <h4 class="mt-3">Illustrator</h4>
               <span data-purecounter-start="0" data-purecounter-end="2016" data-purecounter-duration="1" class="purecounter" style="font-size: 30px;"></span>
             </div>
@@ -646,7 +652,7 @@
 
             <div class="count-box">
 
-              <img src="/assets/img/logos/dreamweaver.png" alt="" width="50px">
+              <img src="assets/img/logos/dreamweaver.png" alt="" width="50px">
               <h4 class="mt-3">Dreamweaver</h4>
               <span data-purecounter-start="0" data-purecounter-end="2016" data-purecounter-duration="1" class="purecounter" style="font-size: 30px;"></span>
             </div>
@@ -656,7 +662,7 @@
 
             <div class="count-box">
 
-              <img src="/assets/img/logos/indesign.png" alt="" width="50px">
+              <img src="assets/img/logos/indesign.png" alt="" width="50px">
               <h4 class="mt-3">InDesign</h4>
               <span data-purecounter-start="0" data-purecounter-end="2016" data-purecounter-duration="1" class="purecounter" style="font-size: 30px;"></span>
             </div>
@@ -668,7 +674,7 @@
 
             <div class="count-box">
 
-              <img src="/assets/img/logos/Premiere_Pro.png" alt="" width="50px">
+              <img src="assets/img/logos/Premiere_Pro.png" alt="" width="50px">
               <h4 class="mt-3">Premiere Pro</h4>
               <span data-purecounter-start="0" data-purecounter-end="2016" data-purecounter-duration="1" class="purecounter" style="font-size: 30px;"></span>
             </div>
@@ -678,7 +684,7 @@
 
             <div class="count-box">
 
-              <img src="/assets/img/logos/adobe-flash.png" alt="" width="50px" style="border-radius: 8px;">
+              <img src="assets/img/logos/adobe-flash.png" alt="" width="50px" style="border-radius: 8px;">
               <h4 class="mt-3">Flash</h4>
               <span data-purecounter-start="0" data-purecounter-end="2016" data-purecounter-duration="1" class="purecounter" style="font-size: 30px;"></span>
             </div>
@@ -823,12 +829,12 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form id="emailform" method="post" role="form" class="php-email-form">
 
               <div class="row">
 
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  <input type="text" name="name" class="form-control" id="from_name" placeholder="Your Name" required>
                 </div>
 
                 <div class="col-md-6 form-group mt-3 mt-md-0">
@@ -846,24 +852,23 @@
 
               <div class="my-3">
 
-                <div class="loading">Loading</div>
+                <div id="success-msg" class="d-none alert alert-success">Thank you! Your message has been sent!</div>
 
-                <div class="error-message"></div>
-
-                <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
 
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button id="sendemail" type="submit">Send Message</button></div>
+
             </form>
 
           </div>
-
         </div>
-
       </div>
-    </section><!-- End Contact Section -->
+    </section>
+    <!-- End Contact Section -->
+
 
   </main><!-- End #main -->
+
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
@@ -908,10 +913,16 @@
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/jQuery/jquery-3.6.3.min.js"></script>
-  <script src="assets/js/email.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Email JS -->
+  <script src="assets/js/email.js"></script>
+  <script type="text/javascript">
+    emailjs.init('WNGxpabmJ-fnWMfdV')
+  </script>
+
 
 </body>
 
