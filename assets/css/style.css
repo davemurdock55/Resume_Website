@@ -5,6 +5,23 @@
 * License: https://bootstrapmade.com/license/
 */
 
+/* Custom Styles */
+/* ! I added this */
+.logo-img {
+  margin-right: 10px;
+  /* Add some space to the right of the image */
+  margin-left: -17px;
+  /* Push the image to the left */
+}
+
+/* ! I added this */
+.d-none {
+  display: none;
+}
+
+
+
+
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -288,6 +305,7 @@ h6 {
 #hero {
   width: 100%;
   height: 100vh;
+  /* ! HERO IMAGE: I changed this */
   background: url("../img/david_on_couch_cropped.png") top right no-repeat;
   background-size: cover;
   position: relative;
@@ -298,6 +316,20 @@ h6 {
     padding-left: 160px;
   }
 }
+
+/* ! Formatting for smaller screens! I added this with the help of Chat GPT */
+@media (max-width: 992px) {
+  #hero {
+    background-size: auto 100%;
+    background-position: 60% center;
+    padding-right: 160px;
+  }
+}
+
+
+
+
+
 
 #hero:before {
   content: "";
